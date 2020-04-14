@@ -37,12 +37,13 @@ public class Main {
 		obj.add(8);
 		obj.add(9);
 		obj.add(10);
-		System.out.println(obj.getLast().getData());
-		System.out.println("count===>"+obj.getCount());
+		//System.out.println(obj.getLast().getData());
+		//System.out.println("count===>"+obj.getCount());
 		//obj.remove(3);
-		System.out.println(obj.getLast().getData());
+		//System.out.println(obj.getLast().getData());
 		System.out.println("count===>"+obj.getCount());
 		Node<Integer> middle = new Main().findMiddleNode(obj.getFirst());
-		System.out.println(middle.getData());
+		System.out.println("middle===>"+middle.getData());
+		System.out.println("third from last===>"+new Operations().findThirdNodeFromLast(obj).getData());
 	}
 }
