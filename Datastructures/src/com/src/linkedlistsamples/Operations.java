@@ -23,4 +23,29 @@ public class Operations {
 	 }
 	 return secondPointer;
  }
+ public <T> Node<T> findMiddleNode(Node<T> first)
+	{
+		Node<T> slowPointer, fastPointer; 
+		slowPointer = fastPointer = first; 
+
+		while(fastPointer !=null) { 
+			fastPointer = fastPointer.getNext(); 
+			if(fastPointer != null && fastPointer.getNext() != null) { 
+				slowPointer = slowPointer.getNext(); 
+				fastPointer = fastPointer.getNext(); 
+			} 
+		} 
+
+		return slowPointer; 
+
+	}
+ public <T> LinkedList<T> removeMiddleElement(LinkedList<T> obj){
+	 Node<T> middleNode = findMiddleNode(obj.getFirst());
+	 Node<T> temp = middleNode;
+	 Node<T> prev = middleNode.getPrev();
+	 Node<T> next = middleNode.getNext();
+	 prev.setNext(temp.getNext());
+	 next.setPrev(temp.getPrev());
+	 return obj;
+ }
 }

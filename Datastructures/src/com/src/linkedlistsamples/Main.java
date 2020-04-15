@@ -4,22 +4,6 @@ import com.src.linkedlistsamples.LinkedList.Node;
 
 public class Main {
 
-	public Node<Integer> findMiddleNode(Node<Integer> first)
-	{
-		Node<Integer> slowPointer, fastPointer; 
-		slowPointer = fastPointer = first; 
- 
-		while(fastPointer !=null) { 
-			fastPointer = fastPointer.getNext(); 
-			if(fastPointer != null && fastPointer.getNext() != null) { 
-				slowPointer = slowPointer.getNext(); 
-				fastPointer = fastPointer.getNext(); 
-			} 
-		} 
- 
-		return slowPointer; 
- 
-	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int node1=1;
@@ -41,9 +25,12 @@ public class Main {
 		//System.out.println("count===>"+obj.getCount());
 		//obj.remove(3);
 		//System.out.println(obj.getLast().getData());
+		Operations operation = new Operations();
 		System.out.println("count===>"+obj.getCount());
-		Node<Integer> middle = new Main().findMiddleNode(obj.getFirst());
-		System.out.println("middle===>"+middle.getData());
-		System.out.println("third from last===>"+new Operations().findThirdNodeFromLast(obj).getData());
+		System.out.println("middle===>"+operation.findMiddleNode(obj.getFirst()).getData());
+		System.out.println("third from last===>"+operation.findThirdNodeFromLast(obj).getData());
+		obj = operation.removeMiddleElement(obj);
+		System.out.println("count===>"+obj.getCount());
+		System.out.println("middle1===>"+operation.findMiddleNode(obj.getFirst()).getData());
 	}
 }
