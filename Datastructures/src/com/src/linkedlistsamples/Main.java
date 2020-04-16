@@ -16,15 +16,15 @@ public class Main {
 		obj.add(node3);
 		obj.add(node4);
 		obj.add(5);
-		obj.add(6);
+		obj.add(3);
 		obj.add(7);
-		obj.add(8);
+		obj.add(4);
 		obj.add(9);
 		obj.add(10);
-		//System.out.println(obj.getLast().getData());
-		//System.out.println("count===>"+obj.getCount());
-		//obj.remove(3);
-		//System.out.println(obj.getLast().getData());
+		System.out.println(obj.getLast().getData());
+		System.out.println("count===>"+obj.getCount());
+		obj.remove(3);
+		System.out.println(obj.getLast().getData());
 		Operations operation = new Operations();
 		System.out.println("count===>"+obj.getCount());
 		System.out.println("middle===>"+operation.findMiddleNode(obj.getFirst()).getData());
@@ -32,5 +32,6 @@ public class Main {
 		obj = operation.removeMiddleElement(obj);
 		System.out.println("count===>"+obj.getCount());
 		System.out.println("middle1===>"+operation.findMiddleNode(obj.getFirst()).getData());
+		operation.removeDuplicatesFromList(obj);
 	}
 }

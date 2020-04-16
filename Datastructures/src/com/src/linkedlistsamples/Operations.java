@@ -1,8 +1,11 @@
 package com.src.linkedlistsamples;
 
+import java.util.HashSet;
+
 import com.src.linkedlistsamples.LinkedList.Node;
 
 public class Operations {
+
  public <T> Node<T> findThirdNodeFromLast(LinkedList<T> list){
 	 Node<T> firstPointer = list.getFirst();
 	 Node<T> secondPointer = null;
@@ -23,6 +26,7 @@ public class Operations {
 	 }
 	 return secondPointer;
  }
+ 
  public <T> Node<T> findMiddleNode(Node<T> first)
 	{
 		Node<T> slowPointer, fastPointer; 
@@ -39,6 +43,7 @@ public class Operations {
 		return slowPointer; 
 
 	}
+ 
  public <T> LinkedList<T> removeMiddleElement(LinkedList<T> obj){
 	 Node<T> middleNode = findMiddleNode(obj.getFirst());
 	 Node<T> temp = middleNode;
@@ -47,5 +52,26 @@ public class Operations {
 	 prev.setNext(temp.getNext());
 	 next.setPrev(temp.getPrev());
 	 return obj;
+ }
+ 
+ public <T> LinkedList<T> removeDuplicatesFromList(LinkedList<T> obj){
+	Node<T> current = obj.getFirst();
+	Node<T> prev = null;
+	HashSet<T> hs = new HashSet<T>();
+    while (current != null)  
+    { 
+        T curval = current.getData();
+          
+         // If current value is seen before 
+        if (hs.contains(curval)) { 
+            prev.setNext(current.getNext());
+        } else { 
+            hs.add(curval); 
+            prev = current; 
+        } 
+        current = current.getNext(); 
+    } 
+    System.out.println(hs);//LinkedList elements without duplicate
+	return obj;
  }
 }

@@ -56,7 +56,7 @@ public class LinkedList<T>  {
 	
 	public void add(T data) {
 		Node<T> temp = new Node<T>();
-		temp.setPrev(null);
+		temp.setNext(null);
 		temp.setData(data);
 		if(first == null) {
 			temp.setPrev(null);
@@ -80,7 +80,7 @@ public class LinkedList<T>  {
 		for(int i=0; i<position-1; i++)
 			temp = temp.next;//next of temp node is the node given to remove
 		
-		if(temp==null && temp.next==null)
+		if(temp==null)
 			return;
 		
 		Node<T> nextNode = new Node<>();
