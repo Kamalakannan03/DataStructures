@@ -1,5 +1,6 @@
 package com.src.linkedlistsamples;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import com.src.linkedlistsamples.LinkedList.Node;
@@ -74,4 +75,29 @@ public class Operations {
     System.out.println(hs);//LinkedList elements without duplicate
 	return obj;
  }
+ 
+ public <T> LinkedList<T> removeNode(LinkedList<T> obj,T object){
+	Node<T> current = obj.getFirst();
+	Node<T> nextNode = null;
+	current=obj.getFirst();
+	if(current==null) {
+		return obj;
+	}
+    if(current.getData() == object && current == obj.getFirst()) {
+    	obj.setFirst(current.getNext());
+    	return obj;
+    }
+    while(current != null) {
+    	if(current.getNext() !=null && current.getNext().getData() == object) {
+    		nextNode = current.getNext();
+    		current.setNext(nextNode.getNext());
+    		if(nextNode.getNext() == null) {
+    			obj.setLast(current);
+    		}
+    	}
+    	current = current.getNext();
+    }
+	 return obj;
+ }
+ 
 }
