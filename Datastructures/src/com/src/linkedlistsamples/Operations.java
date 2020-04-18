@@ -83,7 +83,7 @@ public class Operations {
 	if(current==null) {
 		return obj;
 	}
-    if(current.getData() == object && current == obj.getFirst()) {
+    if(current!=null && current.getData() == object && current == obj.getFirst()) {
     	obj.setFirst(current.getNext());
     	return obj;
     }
@@ -99,5 +99,28 @@ public class Operations {
     }
 	 return obj;
  }
+ 
+ public <T> Node reverse(Node<T> head) 
+ { 
+     Node<T> prev = null; 
+     Node<T> current = head; 
+     Node<T> next = null; 
+     while (current != null) { 
+         next = current.getNext(); 
+         current.setNext(current.getPrev());
+         prev = current; 
+         current = next; 
+     } 
+     head = prev;
+     return head; 
+ }
+ 
+ public <T> void printList(Node<T> head) 
+ { 
+     while (head != null) { 
+         System.out.print(head.getData() + " "); 
+         head = head.getNext();
+     } 
+ } 
  
 }
